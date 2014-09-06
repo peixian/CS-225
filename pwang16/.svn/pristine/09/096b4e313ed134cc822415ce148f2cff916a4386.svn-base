@@ -1,0 +1,7 @@
+Monad Autograder
+Testing lab_intro at 2014-09-01 01:59:52
+
+"Find your points of interest, compute HOG features, bung them into a classifier, and see what you get." ~ D.A. Forsyth
+
+Setting up test environment...
+Error: /dev/shm/grading/svn_checkout/pwang16/lab_intro/rgbapixel.cpp does not exist.
