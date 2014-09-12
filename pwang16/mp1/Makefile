@@ -1,12 +1,16 @@
+CXX = clang++
+LD = clang++ 
+CXXFLAGS = -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -Werror -pedantic
+LDFLAGS = -std=c++1y -stdlib=libc++ -lpng -lc++abi
 mp1 : main.o rgbapixel.o png.o
-	clang++ main.o rgbapixel.o png.o  -lpng -o mp1
+	clang++ $(LDFLAGS) main.o rgbapixel.o png.o -o mp1
 
 main.o : png.h rgbapixel.h main.cpp 
-	clang++ -c main.cpp
+	clang++ $(CXXFLAGS) main.cpp
 
 png.o : png.h png.cpp 
-	clang++ -c png.cpp
+	clang++ $(CXXFLAGS) png.cpp
 
 rgbapixel.o : rgbapixel.h rgbapixel.cpp 
-	clang++ -c rgbapixel.cpp
+	clang++ $(CXXFLAGS) rgbapixel.cpp
 

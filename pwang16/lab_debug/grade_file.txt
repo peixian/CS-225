@@ -1,0 +1,25 @@
+svn: Working copy '/dev/shm/khattar2/cs225_current_checkout' locked
+svn: run 'svn cleanup' to remove locks (type 'svn help cleanup' for details)
+Monad Autograder
+Testing lab_debug at 2014-09-08 01:41:39
+
+"Even if by chance this world should end tomorrow, if it's together with you, would 'I'm okay with that too' be the cool attitude you'd take?" ~ Makino Yui
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+no_segfaults . . . [20 pts] - passed
+produces_out_png . [10 pts] - passed
+similar_sketch . . [30 pts] - passed
+complete_in_01_png [20 pts] - passed
+complete_in_02_png [20 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 100
+
