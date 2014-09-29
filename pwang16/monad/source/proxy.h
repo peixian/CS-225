@@ -238,7 +238,7 @@ namespace proxy_test { }
 		func##_adder(#func, func, pointsInPart,                          \
 		             pointsInTotal, timeout, false);                     \
 	}                                                                    \
-	void proxy_test::func(util::pipestream &)
+	void proxy_test::func(__attribute__((unused)) util::pipestream & ___monad_checkstream___)
 
 #define VALGRIND_TEST_OUTPUT(func,pointsInPart,pointsInTotal,timeout)           \
 	namespace proxy_test {                                               \
@@ -256,7 +256,7 @@ namespace proxy_test { }
 		func##_adder(#func, func, pointsInPart,                          \
 		             pointsInTotal, timeout, true);                      \
 	}                                                                    \
-	void proxy_test::func(util::pipestream &)
+	void proxy_test::func(__attribute__((unused)) util::pipestream & ___monad_checkstream___)
 
 #define HELPER_TEST_OUTPUT(func, ...)                                           \
 	namespace proxy_test {                                               \
@@ -268,7 +268,7 @@ namespace proxy_test { }
 	namespace proxy_test {                                               \
 	void func(util::pipestream & ___monad_checkstream___, __VA_ARGS__);  \
 	}                                                                    \
-	void proxy_test::func(util::pipestream &, __VA_ARGS__)
+	void proxy_test::func(util::pipestream & ___monad_checkstream___, __VA_ARGS__)
 
 #define CALL_HELPER(func, ...)                                           \
 	do {                                                                 \

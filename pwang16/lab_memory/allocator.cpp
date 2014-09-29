@@ -16,13 +16,13 @@ Allocator::Allocator(const string & studentFile, const string & roomFile)
 	createLetterGroups();
 	loadStudents(studentFile);
 	loadRooms(roomFile);
+	roomCount = fileio::getNumRooms();
 }
-
+//Allocator Destructor
 Allocator::~Allocator() {
 	delete [] rooms;
 	delete [] alpha;
 }
-
 /**
  * Allocates the array of letters
  */
@@ -33,7 +33,6 @@ void Allocator::createLetterGroups()
 	for (int i = 0; i < 26; i++)
 		alpha[i].letter = 'A' + i;
 }
-
 
 /**
  * Reads the students from the students file and places them in their letter
@@ -61,16 +60,18 @@ void Allocator::loadRooms(const string & file)
 {
 	// Read in rooms
 	fileio::loadRooms(file);
-	rooms = new Room[roomCount];
+	rooms = new Room[fileio::getNumRooms()];
 
 	totalCapacity = 0;
 	int i = 0;
 	while (fileio::areMoreRooms())
 	{
-		i++;
+		
 		rooms[i] = fileio::nextRoom();
 		totalCapacity += rooms[i].capacity;
+		i++;
 	}
+
 }
 
 void Allocator::printStudents()
@@ -107,6 +108,7 @@ void Allocator::printRooms()
 	cout << "Room Allocation (" << studentCount << "/" << totalCapacity << ")" << endl;
 	for (int i = 0; i < roomCount; i++)
 		rooms[i].print();
+
 }
 
 /**
@@ -119,6 +121,8 @@ int Allocator::solve()
 	for (int L = 0; L < 26; L++)
 	{
 		Room * r = largestOpening();
+		
+				
 		r->addLetter(alpha[L]);
 	}
 	
@@ -153,5 +157,6 @@ Room * Allocator::largestOpening()
 			max_remaining = rooms[i].spaceRemaining();
 		}
 	}
+	
 	return &rooms[index];
 }

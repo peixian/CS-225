@@ -19,6 +19,10 @@ int main()
 	set->addpicture("in_01.png", 0, 0, 0);
 	set->addpicture("in_02.png", 1, 60, 60);
 	set->addpicture("in_03.png", 2, 150, 0);
+	set->getpicture(2);
+	Image * test = set->getpicture(0);
+	test->writeToFile("test.png");
+	std::cout << "GOT THE PICTURE SUCCESSFULLY" << endl;
 	Image result = set->drawscene();
 	result.writeToFile("scene.png");	
 
@@ -40,8 +44,10 @@ int main()
 
 	Scene* sc = new Scene(*set);
 	sc->getpicture(0)->flipleft();
+	std::cout << "GOT TO THE FIRST PART OF SCENE 6" << endl;
 	result = set->drawscene();
 	result.writeToFile("scene6.png");  //scene 5 and scene 6 should be the same
+	std::cout << "GOT TO THE SECOND PART OF SCENE 6" << endl;	
 	result = sc->drawscene();
 	result.writeToFile("scene7.png");
 

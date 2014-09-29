@@ -25,10 +25,10 @@ class Allocator
          * @param roomFile Path to room list file
          */
         Allocator(const string & studentFile, const string & roomFile);
-
-
-		//decontructor
+	
+		//Allocator Destructor
 		~Allocator();
+
 
         /**
          * Calls the solving routine to allocate student letter
@@ -87,9 +87,6 @@ class Allocator
 
         /** Array of all rooms */
         Room* rooms;
-
-
-		
         /** Size of the rooms array */
         int roomCount;
 
