@@ -86,6 +86,13 @@ void testReverse()
 	PNG in("in_02.png");
 
 
+	//testing for empty
+	List<int> listTestingEmpty;
+	cout << "[emptyTest]: " << listTestingEmpty << endl;
+	listTestingEmpty.reverse();
+ 	cout << "[emptyTest]: " << listTestingEmpty << endl;
+
+
 	//TESTING THE REVERSE FUNCTION
 
 	List<int> listTest;
@@ -111,6 +118,14 @@ void testReverseNth()
 	cout << "[main]: " << __func__ << "()" << endl;
 	PNG in("in_03.png");
 	
+
+
+	//testing for empty
+	List<int> listTestingEmpty;
+	cout << "[emptyTest]: " << listTestingEmpty << endl;
+	listTestingEmpty.reverseNth(0);
+ 	cout << "[emptyTest]: " << listTestingEmpty << endl;
+
 
 	List<int> listNth;
 	for (int i = 0; i<10; i++) {
@@ -141,6 +156,15 @@ void testReverseNth()
 
 void testWaterfall()
 {
+
+
+
+	//testing for empty
+	List<int> listTestingEmpty;
+	cout << "[emptyTest]: " << listTestingEmpty << endl;
+	listTestingEmpty.waterfall();
+ 	cout << "[emptyTest]: " << listTestingEmpty << endl;
+
 	cout << "[main]: " << __func__ << "()" << endl;
 	PNG in("in_05.png");
 
@@ -164,6 +188,14 @@ void testWaterfall()
 void testSplit()
 {
 	cout << "[main]: " << __func__ << "()" << endl;
+
+
+
+	//testing for empty
+	List<int> listTestingEmpty;
+	cout << "[emptyTest]: " << listTestingEmpty << endl;
+	listTestingEmpty.split(0);
+ 	cout << "[emptyTest]: " << listTestingEmpty << endl;
 
 	PNG in("in_07.png");
 	List<RGBAPixel> list1;
@@ -217,6 +249,9 @@ void testSplit()
 void testMerge()
 {
 	cout << "[main]: " << __func__ << "()" << endl;
+
+
+	
 
 	PNG im1("in_08.png");
 	PNG im2("in_09.png");
