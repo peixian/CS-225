@@ -23,10 +23,16 @@
 template <typename T>
 T QuackFun::sum(stack<T> & s)
 {
-    // Your code here
-    return T(); // stub return value (0 for primitive types). Change this!
-                // Note: T() is the default value for objects, and 0 for
-                // primitive types
+	T top  = s.top();
+	s.pop();
+	if (s.size() == 0) {
+		s.push(top);
+		return top;
+	}
+	T temp = top + sum(s);
+	s.push(top);
+	return temp;
+	
 }
 
 /**
@@ -44,9 +50,34 @@ template <typename T>
 void QuackFun::scramble(queue<T> & q)
 {
     stack<T> s;
-    // optional: queue<T> q2;
-
-    // Your code here
+	queue<T> q2;
+	int size = 1;
+	
+	while(q.size() != 0) {
+		int i = 0;
+		bool reverse = (size % 2) == 0;
+		while(i < size && q.size() != 0) {
+			if (reverse) {
+				s.push(q.front());
+				q.pop();
+			}
+			else {
+				q2.push(q.front());
+				q.pop();
+			}
+			i++;
+		}
+		while(s.size() != 0) {
+			q2.push(s.top());
+			s.pop();
+		}
+		size++;
+	}
+	while(q2.size() != 0) {
+		q.push(q2.front());
+		q2.pop();
+	}
+	
 }
 
 /**

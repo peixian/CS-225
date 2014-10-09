@@ -1,0 +1,1 @@
+PATH=/Applications/mesasdk/bin:/Users/peixianwang/pebble-dev/PebbleSDK-current/bin:/usr/local/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/Users/peixianwang/.rvm/bin
