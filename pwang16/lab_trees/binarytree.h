@@ -177,6 +177,17 @@ class BinaryTree
          * @param subRoot The current node in the recursion
          */
         void clear(Node* subRoot);
+		
+		
+		void mirror(Node* subRoot); 
+		
+		
+		bool isOrdered(Node* subroot) const;
+		
+		void printPaths(Node* subroot, vector<int> path) const;
+		
+		int sumDistances(Node* subroot, int length) const;
+		
 };
 
 #include "binarytree_given.cpp"
