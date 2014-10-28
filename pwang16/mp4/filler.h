@@ -264,6 +264,7 @@ namespace filler {
     template <template <class T> class OrderingStructure>
     animation fill( PNG & img, int x, int y, 
             colorPicker & fillColor, int tolerance, int frameFreq );
+
 }
 #include "filler.cpp"
 #endif

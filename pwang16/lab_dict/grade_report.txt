@@ -1,0 +1,92 @@
+Monad Autograder
+Testing lab_dict at 2014-10-27 14:15:01
+
+"Anything that can go wrong will go wrong." ~ Murphy's Law
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_get_anagrams  . . . . [15 pts] - FAILED: unit_tests.cpp:38: Assertion (canon == result) failed
+test_get_all_anagrams  . . [15 pts] - FAILED: unit_tests.cpp:57: Assertion (canon == result_set) failed
+test_fib . . . . . . . . . [5 pts]  - FAILED: unit_tests.cpp:66: Assertion (fib(i) == fib_results[i]) failed
+test_memoized_fib  . . . . [15 pts] - FAILED: unit_tests.cpp:76: Assertion (memoized_fib(28) == fib_results[28]) failed
+test_homophones  . . . . . [10 pts] - FAILED: unit_tests.cpp:86: Assertion ((! d.homophones("scent", "DOG"))) failed
+test_cartalk_puzzle  . . . [10 pts] - FAILED: unit_tests.cpp:97: Assertion (result.size() == 1) failed
+test_get_common_words_3  . [15 pts] - FAILED: unit_tests.cpp:114: Assertion (canon == students) failed
+test_get_common_words_3000 [15 pts] - FAILED: unit_tests.cpp:133: Assertion (canon == students) failed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 0
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+test_get_anagrams [15 points]
+Result: FAILED: unit_tests.cpp:38: Assertion (canon == result) failed
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+test_get_all_anagrams [15 points]
+Result: FAILED: unit_tests.cpp:57: Assertion (canon == result_set) failed
+Took 0ms (5000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+test_fib [5 points]
+Result: FAILED: unit_tests.cpp:66: Assertion (fib(i) == fib_results[i]) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+test_memoized_fib [15 points]
+Result: FAILED: unit_tests.cpp:76: Assertion (memoized_fib(28) == fib_results[28]) failed
+Took 0ms (100ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+test_homophones [10 points]
+Result: FAILED: unit_tests.cpp:86: Assertion ((! d.homophones("scent", "DOG"))) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+test_cartalk_puzzle [10 points]
+Result: FAILED: unit_tests.cpp:97: Assertion (result.size() == 1) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+test_get_common_words_3 [15 points]
+Result: FAILED: unit_tests.cpp:114: Assertion (canon == students) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+test_get_common_words_3000 [15 points]
+Result: FAILED: unit_tests.cpp:133: Assertion (canon == students) failed
+Took 215ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 0
+

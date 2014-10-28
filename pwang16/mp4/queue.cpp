@@ -26,8 +26,11 @@ void Queue<T>::enqueue(T const & newItem)
 template<class T>
 T Queue<T>::dequeue()
 {
+	if (!outStack.isEmpty()) {
+		return outStack.pop();
+	}
 	while (!inStack.isEmpty()) {
-		outStack.add(inStack.remove());
+		outStack.add(inStack.pop());
 	}
     return outStack.pop();
 }
@@ -62,7 +65,7 @@ template<class T>
 T Queue<T>::peek()
 {
 	while(!inStack.isEmpty()) {
-		outStack.add(inStack.remove());
+		outStack.add(inStack.pop());
 	}
 	return outStack.peek();
 }

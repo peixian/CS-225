@@ -10,136 +10,142 @@
 
 animation filler::dfs::fillSolid( PNG & img, int x, int y, 
         RGBAPixel fillColor, int tolerance, int frameFreq ) {
-    /**
-     * @todo Your code here! You should replace the following line with a
-     *  correct call to fill with the correct colorPicker parameter.
-     */
-    return animation();
+			solidColorPicker p = solidColorPicker(fillColor);
+			return fill(img, x, y, p, tolerance, frameFreq);
 }
 
 animation filler::dfs::fillGrid( PNG & img, int x, int y, 
         RGBAPixel gridColor, int gridSpacing, int tolerance, int frameFreq ) {
-    /**
-     * @todo Your code here! You should replace the following line with a
-     *  correct call to fill with the correct colorPicker parameter.
-     */
-    return animation();
+			gridColorPicker p = gridColorPicker(gridColor, gridSpacing);
+			return fill(img, x, y, p, tolerance, frameFreq);
 }
 
 animation filler::dfs::fillGradient( PNG & img, int x, int y, 
         RGBAPixel fadeColor1, RGBAPixel fadeColor2, int radius, 
         int tolerance, int frameFreq ) {
-    /**
-     * @todo Your code here! You should replace the following line with a
-     *  correct call to fill with the correct colorPicker parameter.
-     */
-    return animation();
+			gradientColorPicker p = gradientColorPicker(fadeColor1, fadeColor2, radius, x, y);
+			return fill(img, x, y, p, tolerance, frameFreq);
 }
 
 animation filler::dfs::fill( PNG & img, int x, int y, 
         colorPicker & fillColor, int tolerance, int frameFreq ) {
-    /**
-     * @todo Your code here! You should replace the following line with a
-     *  correct call to filler::fill with the correct template parameter
-     *  indicating the ordering structure to be used in the fill.
-     */
-    return animation();
+			return filler::fill<Stack>(img, x, y, fillColor, tolerance, frameFreq);
 }
 
 animation filler::bfs::fillSolid( PNG & img, int x, int y, 
         RGBAPixel fillColor, int tolerance, int frameFreq ) {
-    /**
-     * @todo Your code here! You should replace the following line with a
-     *  correct call to fill with the correct colorPicker parameter.
-     */
-    return animation();
+			solidColorPicker p = solidColorPicker(fillColor);
+			return fill(img, x, y, p, tolerance, frameFreq);
 }
 
 animation filler::bfs::fillGrid( PNG & img, int x, int y, 
         RGBAPixel gridColor, int gridSpacing, int tolerance, int frameFreq ) {
-    /**
-     * @todo Your code here! You should replace the following line with a
-     *  correct call to fill with the correct colorPicker parameter.
-     */
-    return animation();
+			gridColorPicker p = gridColorPicker(gridColor, gridSpacing);
+			return fill(img, x, y, p, tolerance, frameFreq);
 }
 
 animation filler::bfs::fillGradient( PNG & img, int x, int y, 
         RGBAPixel fadeColor1, RGBAPixel fadeColor2, int radius, 
         int tolerance, int frameFreq ) {
-    /**
-     * @todo Your code here! You should replace the following line with a
-     *  correct call to fill with the correct colorPicker parameter.
-     */
-    return animation();
+			gradientColorPicker p = gradientColorPicker(fadeColor1, fadeColor2, radius, x, y);
+			return fill(img, x, y, p, tolerance, frameFreq);
 }
 
 animation filler::bfs::fill( PNG & img, int x, int y, 
         colorPicker & fillColor, int tolerance, int frameFreq ) {
-    /**
-     * @todo Your code here! You should replace the following line with a
-     *  correct call to filler::fill with the correct template parameter
-     *  indicating the ordering structure to be used in the fill.
-     */
-    return animation();
+			return filler::fill<Queue>(img, x, y, fillColor, tolerance, frameFreq);
 }
 
 template <template <class T> class OrderingStructure>
 animation filler::fill( PNG & img, int x, int y,
         colorPicker & fillColor, int tolerance, int frameFreq ) {
-    /**
-     * @todo You need to implement this function!
-     *
-     * This is the basic description of a flood-fill algorithm: Every fill
-     * algorithm requires an ordering structure, which is passed to this
-     * function via its template parameter. For a breadth-first-search
-     * fill, that structure is a Queue, for a depth-first-search, that
-     * structure is a Stack. To begin the algorithm, you simply place the
-     * given point in the ordering structure. Then, until the structure is
-     * empty, you do the following:
-     *
-     * 1.     Remove a point from the ordering structure. 
-     *
-     *        If it has not been processed before and if its color is
-     *        within the tolerance distance (up to and **including**
-     *        tolerance away in square-RGB-space-distance) to the original
-     *        point's pixel color [that is, \f$(currentRed - OriginalRed)^2 +
-              (currentGreen - OriginalGreen)^2 + (currentBlue -
-              OriginalBlue)^2 \leq tolerance\f$], then: 
-     *        1.    indicate somehow that it has been processed (do not mark it
-     *              "processed" anywhere else in your code) 
-     *        2.    change its color in the image using the appropriate
-     *              colorPicker
-     *        3.    add all of its neighbors to the ordering structure, and 
-     *        4.    if it is the appropriate frame, send the current PNG to the
-     *              animation (as described below).
-     * 2.     When implementing your breadth-first-search and
-     *        depth-first-search fills, you will need to explore neighboring
-     *        pixels in some order.
-     *
-     *        While the order in which you examine neighbors does not matter
-     *        for a proper fill, you must use the same order as we do for
-     *        your animations to come out like ours! The order you should put
-     *        neighboring pixels **ONTO** the queue or stack is as follows:
-     *        **RIGHT(+x), DOWN(+y), LEFT(-x), UP(-y). IMPORTANT NOTE: *UP*
-     *        here means towards the top of the image, so since an image has
-     *        smaller y coordinates at the top, this is in the *negative y*
-     *        direction. Similarly, *DOWN* means in the *positive y*
-     *        direction.** To reiterate, when you are exploring (filling out)
-     *        from a given pixel, you must first try to fill the pixel to
-     *        it's RIGHT, then the one DOWN from it, then to the LEFT and
-     *        finally UP. If you do them in a different order, your fill may
-     *        still work correctly, but your animations will be different
-     *        from the grading scripts!
-     * 3.     For every k pixels filled, **starting at the kth pixel**, you
-     *        must add a frame to the animation, where k = frameFreq. 
-     *
-     *        For example, if frameFreq is 4, then after the 4th pixel has
-     *        been filled you should add a frame to the animation, then again
-     *        after the 8th pixel, etc.  You must only add frames for the
-     *        number of pixels that have been filled, not the number that
-     *        have been checked. So if frameFreq is set to 1, a pixel should
-     *        be filled every frame.
-     */
-    return animation();
+			//image dimensions
+			int width  = img.width();
+			int height = img.height();
+			
+			//image starting points 
+			//GOES RGB
+			
+			int sRed = (int) (img(x,y)->red);
+			int sGreen = (int) (img(x,y)->green);
+			int sBlue = (int) (img(x,y)->blue);
+			
+			//set up the animation
+			animation gif;
+			
+			//set up the list for x and y
+			OrderingStructure<int> xList;
+			OrderingStructure<int> yList;
+			xList.add(x);
+			yList.add(y);
+			
+			//number of frames added
+			int framesAdded = 0;
+			
+			//marked as processed 
+			//make a vector of vectors???
+			//hey it works
+			std::vector< vector<bool> > marked(width, vector<bool>(height));
+			//set all the stuff inside marked to false 
+			for (int i = 0; i<width; i++) {
+				for (int j = 0; j<height; j++) {
+					marked[i][j] = false;
+				}
+			} 
+			
+			while(!xList.isEmpty() && !yList.isEmpty()) {
+				int currentX = xList.remove();
+				int currentY = yList.remove();
+				//tolerence
+				
+				int toleranceCurrent = 0;
+				toleranceCurrent += pow(img(currentX, currentY)->red - sRed, 2);
+				toleranceCurrent += pow(img(currentX, currentY)->green - sGreen, 2);
+				toleranceCurrent += pow(img(currentX, currentY)-> blue - sBlue, 2);
+				
+				//if the current is NOT marked and if the tolerance is less than the given tolerance
+				if(!marked[currentX][currentY] && toleranceCurrent <= tolerance) {
+					
+					framesAdded++;
+					
+					//sets the pointee of the the image to the fill color
+					*img(currentX, currentY) = fillColor(currentX, currentY);
+					marked[currentX][currentY] = true;
+					
+					
+					//adds the animation
+					if(framesAdded % frameFreq == 0) {
+						gif.addFrame(img);
+					}
+					
+					//check out of bounds
+					//TRUE if out of bounds, FALSE if in bounds
+					bool rightoob = currentX+1 >= width;
+					bool downoob = currentY+1 >= height;
+					bool leftoob = currentX-1 < 0;
+					bool topoob = currentY-1 < 0;
+					
+					if(!rightoob) {
+						xList.add(currentX + 1);
+						yList.add(currentY);
+					}
+					if(!downoob) {
+						xList.add(currentX);
+						yList.add(currentY + 1);
+					}
+					if (!leftoob) {
+						xList.add(currentX - 1);
+						yList.add(currentY);
+					}
+					if (!topoob) {
+						xList.add(currentX);
+						yList.add(currentY-1);
+					}
+					
+				}
+			}
+    return gif;
 }
+
+	
+	
