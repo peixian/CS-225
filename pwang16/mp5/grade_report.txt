@@ -1,7 +1,7 @@
 Monad Autograder
-Testing mp5 at 2014-10-28 03:50:05
+Testing mp5 at 2014-11-01 02:40:32
 
-"A computer lets you make more mistakes faster than any invention in human history–with the possible exceptions of handguns and tequila." ~ Mitch Radcliffe
+"Ridiculous!" ~ Kyle Johnson
 
 Setting up test environment...
 Compiling...
