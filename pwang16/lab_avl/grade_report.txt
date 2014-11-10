@@ -1,0 +1,102 @@
+Monad Autograder
+Testing lab_avl at 2014-11-03 12:16:44
+
+"It may look like I'm doing nothing, but I'm actively waiting for my problems to go away." ~ Scott Adams
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_oneElement  . . . [10 pts] - FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+test_simpleRotateLeft  [10 pts] - FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+test_simpleRotateRight [10 pts] - FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+test_threeLeftRotates  [10 pts] - FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+test_threeRightRotates [10 pts] - FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+test_manyRotations . . [20 pts] - FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+test_manyInserts . . . [20 pts] - FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+test_valgrind (asan) . [10 pts] - FAILED: unit_tests.cpp:124: Assertion (tree.find("5") == "5") failed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 0
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+test_oneElement [10 points]
+Result: FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+(empty)
+
+----------------------------------------------------------------
+test_simpleRotateLeft [10 points]
+Result: FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+(empty)
+
+----------------------------------------------------------------
+test_simpleRotateRight [10 points]
+Result: FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+(empty)
+
+----------------------------------------------------------------
+test_threeLeftRotates [10 points]
+Result: FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+(empty)
+
+----------------------------------------------------------------
+test_threeRightRotates [10 points]
+Result: FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+(empty)
+
+----------------------------------------------------------------
+test_manyRotations [20 points]
+Result: FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+(empty)
+
+----------------------------------------------------------------
+test_manyInserts [20 points]
+Result: FAILED: unit_tests.cpp:45: Assertion (output.str() == readFile(filename)) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+(empty)
+
+----------------------------------------------------------------
+test_valgrind (run under asan) [10 points]
+Result: FAILED: unit_tests.cpp:124: Assertion (tree.find("5") == "5") failed
+Took unknown time (5000ms timeout)
+Output:
+----------------------------------------------------------------
+Running test_valgrind [worth 10 points, output below]
+Result: FAILED:
+unit_tests.cpp:124: Assertion (tree.find("5") == "5") failed
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 0
+

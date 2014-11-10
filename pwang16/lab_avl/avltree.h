@@ -164,7 +164,7 @@ class AVLTree
 		 * @param subRoot The current node in the recursion
 		 */
 		void clear(Node * subRoot);
-
+		void insertCheck(Node* & subtree, int side);
         /** member variable used for grading */
         ostream* _out;
 };
