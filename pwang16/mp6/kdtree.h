@@ -240,6 +240,13 @@ class KDTree
         /**
          * @todo Add your helper functions here.
          */
+				
+		//Euclidean Distance function here
+		
+		//findmedian fxn here
+		
+		
+				//quickSelect function here
 };
 
 #include "kdtree.cpp"
