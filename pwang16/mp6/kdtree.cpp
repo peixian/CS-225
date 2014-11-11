@@ -6,10 +6,15 @@
 template<int Dim>
 bool KDTree<Dim>::smallerDimVal(const Point<Dim> & first, const Point<Dim> & second, int curDim) const
 {
-    /**
-     * @todo Implement this function!
-     */
-    return false;
+    if (curDim > Dim) {
+    	return false;
+    }
+	if (second[curDim] == first[curDim]) {
+		return (first > second);
+	}
+	else {
+		return second[curDim] > first[curDim];
+	}
 }
 
 
